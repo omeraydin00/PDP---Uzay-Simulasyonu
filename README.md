@@ -1,96 +1,43 @@
-# 🚀 Uzay Kolonileştirme Simülasyonu (PDP Projesi)
+# Space Colonization Simulation
 
-Bu proje, farklı gezegenler arasında hareket eden uzay araçlarının ve gezegenlerdeki yaşamın simülasyonunu gerçekleştirmektedir.  
-Kişilerin ömürlerinin takibi, araçların hareketleri, gezegenlerdeki zamanın ilerlemesi ve imha durumları detaylı şekilde yönetilmektedir.
+A console simulation of spacecraft travelling between planets whose days have different lengths.
 
-## 📂 Proje Yapısı
+Java
 
 ```
-G221210370/
-├── src/                 # Java kaynak kodları (pdp package içinde)
-├── bin/                 # Derlenmiş sınıf dosyaları (.class)
-├── dist/                # Çalıştırılabilir .jar dosyası
-├── Araclar.txt          # Araç bilgileri
-├── Gezegenler.txt       # Gezegen bilgileri
-├── Kisiler.txt          # Kişi bilgileri
-├── .classpath           # Eclipse proje ayar dosyası
-├── .project             # Eclipse proje ayar dosyası
-└── Rapor.pdf            # Ödev raporu
+Gezegenler:
+             --- X ---           --- Y ---           --- Z ---           --- V ---
+Tarih:       3.1.2025            4.1.2025            3.1.2025            4.1.2025
+Nüfus:       2                   0                   3                   2
+
+Uzay Araçları:
+Araç Adı   Durum      Çıkış      Varış      Hedefe Kalan Saat    Hedefe Varacağı Tarih
+A1         Yolda      X          Y          194                  --
+A2         Yolda      Y          Z          150                  --
+A3         Bekliyor   Z          X          300                  --
+B2         IMHA       X          V          --                   --
 ```
 
-## 🛠️ Kullanılan Teknolojiler
+Planets, spacecraft and passengers are read from text files. Each planet keeps its own clock and calendar, so an hour passes differently on every one of them. Spacecraft leave on their departure date, count down the hours to their destination and record the date they arrive. Every passenger's remaining life goes down hour by hour; a spacecraft whose passengers have all died is destroyed. The table above is redrawn every hour until the simulation ends.
 
-- Java 17 veya üstü
-- Eclipse IDE 2023-12 (veya uyumlu başka bir IDE)
-- Windows 11 işletim sistemi (konsol temizleme desteği için)
+## Running it
 
----
-
-## 👨‍💻 Kurulum ve Çalıştırma Adımları
-
-### 1. Java Kurulumu
-
-- [Java 17 JDK](https://jdk.java.net/17/) sürümünü indirip kurmanız gerekir.
-- Kurulumdan sonra terminale `java -version` yazarak doğru yüklendiğini kontrol edebilirsiniz.
+The ready-built jar in `dist/` needs Java 21. It has to be run from inside `dist/`, next to the text files.
 
 ```bash
-java -version
+git clone https://github.com/omeraydin00/PDP---Uzay-Simulasyonu.git
+cd PDP---Uzay-Simulasyonu/Proje/dist
+java -jar proje.jar
 ```
 
-### 2. Eclipse IDE Kurulumu
-
-- [Eclipse IDE](https://www.eclipse.org/downloads/) sitesinden Eclipse IDE for Java Developers sürümünü indirip kurun.
-- Eclipse ilk açılışta bir workspace (çalışma alanı) seçmenizi ister.
-
-### 3. Projeyi Eclipse'e Import Etmek
-
-- Eclipse → `File > Import > Existing Projects into Workspace` seçeneğini seçin.
-- "Root Directory" olarak proje klasörünüzü (`G221210370`) gösterin.
-- Proje başarıyla eklenecektir.
-
-### 4. Projeyi Eclipse Üzerinden Çalıştırmak
-
-- `src` klasöründen `pdp.Simulasyon` dosyasını bulun.
-- Sağ tıklayıp `Run As > Java Application` seçeneğiyle çalıştırabilirsiniz.
-
-### 5. Jar Dosyasından Çalıştırmak (Konsoldan)
-
-- `dist` klasörü altında `.jar` dosyası bulunmalıdır.
-- Terminal veya Komut İstemi'ni (`cmd`) açın.
-- `dist` klasörünüze girin:
+To build it yourself with Java 17 or newer:
 
 ```bash
-cd yol\G221210370\dist
+cd PDP---Uzay-Simulasyonu/Proje
+javac -encoding UTF-8 -d out src/pdp/*.java
+cd dist && java -cp ../out pdp.Simulasyon
 ```
 
-- Ardından çalıştırın:
+The input files are `Gezegenler.txt` (planets), `Araclar.txt` (spacecraft) and `Kisiler.txt` (passengers).
 
-```bash
-java -jar projeadi.jar
-```
-
-> Not: Program çalıştığında ekranı temizleyecek ve simülasyonu başlatacaktır.
-
----
-
-## 🎯 Projede Gerçekleştirilen İşlemler
-
-- Txt dosyalarından araç, gezegen ve kişi bilgileri okundu.
-- Gezegenlerde zaman ilerletildi.
-- Uzay araçlarının çıkış tarihi geldiğinde harekete başlaması sağlandı.
-- Kişilerin ömürleri saatlik bazda azaltıldı.
-- Araçlar hedefe ulaştığında varış tarihi kaydedildi.
-- Tüm kişilerin ölmesi durumunda araçlar imha edildi.
-- Konsol temizleme işlemleri farklı işletim sistemlerine uygun yapıldı.
-- Program düzgün kapanıyor ve simülasyon sonunda mesaj veriyor.
-
----
-
-## ⚠️ Önemli Notlar
-
-- Projede her gezegen için farklı saat düzeni başarıyla desteklenmektedir.
-- `.jar` dosyası ve txt dosyaları aynı klasörde olmalıdır.
-
----
-
-# 📋 Projeyi Çalıştırmak için Gerekli Her Şey Tamam!
+Made for the Programming Language Principles course at Sakarya University.
