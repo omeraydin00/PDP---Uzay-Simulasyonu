@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260" role="img" aria-label="Space Simulation: Spacecraft, planetary time and populations, in Java.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D1117"/>
+      <stop offset="1" stop-color="#161B22"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.5" r="0.42">
+      <stop offset="0" stop-color="#1F6FEB" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#1F6FEB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58A6FF"/>
+      <stop offset="1" stop-color="#BC8CFF"/>
+    </linearGradient>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.2" fill="#8B949E" opacity="0.18"/>
+    </pattern>
+    <clipPath id="frame"><rect width="1200" height="260" rx="16"/></clipPath>
+    <style>
+      .mono  { font: 500 15px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #8B949E; }
+      .name  { font: 700 48px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #F0F6FC; letter-spacing: -1px; }
+      .meta  { font: 400 18px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #8B949E; }
+      .stack { font: 500 15px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: url(#accent); }
+      .label { font: 600 14px 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; fill: #C9D1D9; }
+      .small { font: 600 12px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #8B949E; }
+      .hub   { font: 700 13px 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace; fill: #F0F6FC; letter-spacing: 1px; }
+      .flow { stroke-dasharray: 6 14; animation: dash 1.2s linear infinite; opacity: 0.55; }
+      @keyframes dash { to { stroke-dashoffset: -40; } }
+      .in { animation: in 0.8s ease-out backwards; }
+      .i1 { animation-delay: 0.05s; } .i2 { animation-delay: 0.2s; } .i3 { animation-delay: 0.35s; } .i4 { animation-delay: 0.5s; }
+      @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+      
+    </style>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="260" fill="url(#bg)"/>
+    <rect width="1200" height="260" fill="url(#dots)"/>
+    <rect width="1200" height="260" fill="url(#glow)"/>
+    <rect x="0.75" y="0.75" width="1198.5" height="258.5" rx="15.5" fill="none" stroke="#30363D" stroke-width="1.5"/>
+
+    <text x="64" y="70" class="mono in i1">~/omeraydin00/PDP---Uzay-Simulasyonu</text>
+    <text x="62" y="130" class="name in i2">Space Simulation</text>
+    <text x="64" y="172" class="meta in i3">Spacecraft, planetary time and populations, in Java.</text>
+    <text x="64" y="212" class="stack in i4">Java · Object-oriented design</text>
+
+    <path d="M843 130 a92 36 0 1 0 184 0 a92 36 0 1 0 -184 0" fill="none" stroke="#30363D" stroke-width="1.5"/>
+    <path d="M757 130 a178 74 0 1 0 356 0 a178 74 0 1 0 -356 0" fill="none" stroke="#30363D" stroke-width="1.5"/>
+    <circle cx="935" cy="130" r="34" fill="#E3B341" opacity="0.12"/>
+    <circle cx="935" cy="130" r="17" fill="#E3B341"/>
+    <circle r="8" fill="#58A6FF"><animateMotion dur="9s" repeatCount="indefinite" path="M843 130 a92 36 0 1 0 184 0 a92 36 0 1 0 -184 0"/></circle>
+    <circle r="11" fill="#BC8CFF"><animateMotion dur="18s" begin="-6s" repeatCount="indefinite" path="M757 130 a178 74 0 1 0 356 0 a178 74 0 1 0 -356 0"/></circle>
+    <path d="M1027 130 C1055 60 875 40 785 90" fill="none" stroke="#58A6FF" stroke-width="1.5" class="flow"/>
+    <path d="M-7 -5 L8 0 L-7 5 Z" fill="#F0F6FC">
+      <animateMotion dur="4s" repeatCount="indefinite" rotate="auto" path="M1027 130 C1055 60 875 40 785 90"/>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.85;1" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
