@@ -1,4 +1,6 @@
-# Space Colonization Simulation
+<p align="center">
+  <img src="./assets/header.svg" alt="Space Colonization Simulation" width="100%" />
+</p>
 
 A console simulation of spacecraft travelling between planets whose days have different lengths.
 
